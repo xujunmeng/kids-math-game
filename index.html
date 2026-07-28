@@ -38,6 +38,9 @@
   .app {
     width: 100%;
     max-width: 460px;
+    max-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* ===== 首页 ===== */
@@ -64,18 +67,25 @@
     line-height: 1.6;
   }
   .level-title { font-size: 18px; margin: 10px 0; color:#7a6753; }
+  .group-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 14px 0 8px;
+    color: #8a7a68;
+    text-align: left;
+  }
 
   .levels {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 12px;
   }
   .levels .lv {
     grid-column: span 1;
     border: none;
-    border-radius: 22px;
-    padding: 22px 0;
-    font-size: 30px;
+    border-radius: 20px;
+    padding: 18px 0;
+    font-size: 26px;
     font-weight: 800;
     color: #fff;
     cursor: pointer;
@@ -86,10 +96,14 @@
     align-items: center;
     gap: 2px;
   }
-  .levels .lv small { font-size: 13px; font-weight: 600; opacity: .92; }
+  .levels .lv small { font-size: 12px; font-weight: 600; opacity: .92; }
   .levels .lv:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.14); }
   .levels .lv.wide { grid-column: span 2; }
 
+  .lv-6  { background: linear-gradient(135deg,#7ad3ff,#4aa8f0); }
+  .lv-7  { background: linear-gradient(135deg,#8be0b0,#45c07a); }
+  .lv-8  { background: linear-gradient(135deg,#ffb4d6,#f078b0); }
+  .lv-9  { background: linear-gradient(135deg,#c4a8ff,#8f6cf0); }
   .lv-10 { background: linear-gradient(135deg,#ff9a56,#ff6a88); }
   .lv-20 { background: linear-gradient(135deg,#6fd08c,#37b26e); }
   .lv-30 { background: linear-gradient(135deg,#5ec3ff,#3a8dff); }
@@ -304,20 +318,29 @@
   <!-- 首页 -->
   <section class="home" id="home">
     <h1>凑数大冒险</h1>
-    <p class="sub">滑动方块，两个数加起来正好凑成目标数就消掉！</p>
+    <p class="sub">滑动方块，两个数加起来正好凑成目标数就消掉！<br>先从凑 6～10 练起吧</p>
     <div class="level-title">先选难度</div>
     <div class="diff-row" id="diffRow">
       <button type="button" class="diff-btn diff-easy" data-diff="easy">简单</button>
       <button type="button" class="diff-btn diff-medium active" data-diff="medium">中等</button>
       <button type="button" class="diff-btn diff-hard" data-diff="hard">困难</button>
     </div>
-    <div class="level-title">再选关卡开始吧</div>
+
+    <div class="group-title">入门 · 小凑数</div>
     <div class="levels">
-      <button class="lv lv-10" data-target="10">凑 10<small>练习 10 以内加减</small></button>
+      <button class="lv lv-6" data-target="6">凑 6<small>练习 6 以内加减</small></button>
+      <button class="lv lv-7" data-target="7">凑 7<small>练习 7 以内加减</small></button>
+      <button class="lv lv-8" data-target="8">凑 8<small>练习 8 以内加减</small></button>
+      <button class="lv lv-9" data-target="9">凑 9<small>练习 9 以内加减</small></button>
+      <button class="lv lv-10 wide" data-target="10">凑 10<small>练习 10 以内加减</small></button>
+    </div>
+
+    <div class="group-title">进阶 · 大凑数</div>
+    <div class="levels">
       <button class="lv lv-20" data-target="20">凑 20<small>练习 20 以内加减</small></button>
       <button class="lv lv-30" data-target="30">凑 30<small>练习 30 以内加减</small></button>
       <button class="lv lv-40" data-target="40">凑 40<small>练习 40 以内加减</small></button>
-      <button class="lv lv-50 wide" data-target="50">凑 50<small>练习 50 以内加减</small></button>
+      <button class="lv lv-50" data-target="50">凑 50<small>练习 50 以内加减</small></button>
     </div>
     <p class="tip">小提示：看到一个数字，想一想<br>「还差几就能凑成目标数呢？」</p>
   </section>
